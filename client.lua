@@ -148,7 +148,7 @@ end)
         `a_m_y_indian_01`,
     }
 
-exports['np-target']:AddTargetModel(peds, {
+exports['bt-target']:AddTargetModel(peds, {
         options = {
        	{
         event = "myshopscript:sendMenu",
@@ -160,35 +160,27 @@ exports['np-target']:AddTargetModel(peds, {
         distance = 1.5
     })
 end)
-                -- RepairKit --
+
+-- RepairKit --
 RegisterNetEvent('supreme_buy:grabRepairKit')
 AddEventHandler('supreme_buy:grabRepairKit',function()
-    TriggerServerEvent('supreme_buy:addItem', 'fixkit')
     TriggerServerEvent('supreme_buy:RepairKitBuy')
-    exports['mythic_notify']:DoCustomHudText('error', "You Payed $1000 for a repairkit")
 end)
 
-                -- Blowtorch --
+-- Blowtorch --
 RegisterNetEvent('supreme_buy:grabBlowtorch')
 AddEventHandler('supreme_buy:grabBlowtorch',function()
-    TriggerServerEvent('supreme_buy:addItem', 'blowtorch')
     TriggerServerEvent('supreme_buy:BlowtorchBuy')
-    exports['mythic_notify']:DoCustomHudText('error', "You Payed $500 for a blowtorch")
 end)
 
-                -- Water --
+-- Water --
 RegisterNetEvent('supreme_buy:grabWater')
 AddEventHandler('supreme_buy:grabWater',function()
-    TriggerServerEvent('supreme_buy:addItem', 'water')
     TriggerServerEvent('supreme_buy:WaterBuy')
-    exports['mythic_notify']:DoCustomHudText('error', "You Payed $35 for water")
 end)
 
-                -- Bread --
+-- Bread --
 RegisterNetEvent('supreme_buy:grabBread')
 AddEventHandler('supreme_buy:grabBread',function()
-    TriggerServerEvent('supreme_buy:addItem', 'bread')
     TriggerServerEvent('supreme_buy:BreadBuy')
-    exports['mythic_notify']:DoCustomHudText('error', "You Payed $35 for bread")
 end)
--- END PAYMENT STUFF --

@@ -3,6 +3,7 @@ This resource for ESX adds shops at Youtool or megamall
 
 # UPDATES
 - Made it so the ped can't be killed.
+- Ped doesn't disappear now
 
 ## Requirements
 - [bt-target](https://github.com/brentN5/bt-target)

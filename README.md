@@ -28,3 +28,4 @@ supreme_gottashop - Youtool/Megamall shop script
 made this out of boredum so enjoy!
 its a straight forward script, need any help then feel free. 
 
+Thanks to KoolllAiidddd for the support on this!

@@ -148,7 +148,7 @@ end)
         `a_m_y_indian_01`,
     }
 
-exports['np-target']:AddTargetModel(peds, {
+exports['bt-target']:AddTargetModel(peds, {
         options = {
        	{
         event = "myshopscript:sendMenu",

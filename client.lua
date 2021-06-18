@@ -5,11 +5,11 @@ Citizen.CreateThread(function()
 			local cordenadasped = GetEntityCoords(PlayerPedId())	
 			local dist = #(v.Cordenadas - cordenadasped)
 			
-			if dist < 11 and pedspawneado == false then
+			if dist < 70 and pedspawneado == false then
 				TriggerEvent('spawn:ped',v.Cordenadas,v.h)
 				pedspawneado = true
 			end
-			if dist >= 10  then
+			if dist >= 80  then
 				pedspawneado = false
 				DeletePed(tunpc)
 			end

@@ -35,7 +35,7 @@ xPlayer.removeMoney(35)
     end)	
 -- --
 
--- Water --
+-- Bread --
 RegisterServerEvent('supreme_buy:BreadBuy')
 AddEventHandler('supreme_buy:BreadBuy', function(amount)
 local xPlayer  = ESX.GetPlayerFromId(source)

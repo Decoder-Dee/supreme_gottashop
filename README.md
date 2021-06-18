@@ -5,6 +5,10 @@ This resource for ESX adds shops at Youtool or megamall
 - Made it so the ped can't be killed.
 - Ped doesn't disappear now
 
+# UP AND COMING UPDATES
+- Server callback to check if player has money (soon hopefully)
+- Right now it will put you into a minus bank account if no money.
+
 ## Requirements
 - [bt-target](https://github.com/brentN5/bt-target)
 - [nh-context](https://github.com/nerohiro/nh-context)

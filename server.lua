@@ -46,9 +46,9 @@ RegisterServerEvent('supreme_buy:WaterBuy')
 AddEventHandler('supreme_buy:WaterBuy', function(amount)
 	local xPlayer  = ESX.GetPlayerFromId(source)
 	local price = 35
-	if xPlayer.canCarryItem('bread', 1) then
+	if xPlayer.canCarryItem('water', 1) then
 		if xPlayer.getMoney() > price then
-			xPlayer.addInventoryItem('bread',1)
+			xPlayer.addInventoryItem('water',1)
 			xPlayer.removeMoney(price)
 			TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'success', text = 'You paid ' .. price, })
 		else
@@ -65,8 +65,9 @@ RegisterServerEvent('supreme_buy:BreadBuy')
 AddEventHandler('supreme_buy:BreadBuy', function(amount)
 	local xPlayer  = ESX.GetPlayerFromId(source)
 	local price = 35
-	if xPlayer.canCarryItem('fixkit', 1) then
+	if xPlayer.canCarryItem('bread', 1) then
 		if xPlayer.getMoney() > price then
+			xPlayer.addInventoryItem('bread',1)
 			xPlayer.removeMoney(price)
 			TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'success', text = 'You paid ' .. price, })
 		else
@@ -77,3 +78,4 @@ AddEventHandler('supreme_buy:BreadBuy', function(amount)
 	end
 end)	
 -- --
+

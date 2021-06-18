@@ -31,6 +31,7 @@ AddEventHandler('spawn:ped',function(coords,heading)
     pedspawneado = true
 	tunpc = CreatePed(5, hash, coords, heading, false, false)
 	FreezeEntityPosition(tunpc, true)
+        SetEntityInvincible(tunpc, true)
     SetBlockingOfNonTemporaryEvents(tunpc, true)
 	loadAnimDict("amb@world_human_cop_idles@male@idle_b") 
 	while not TaskPlayAnim(tunpc, "amb@world_human_cop_idles@male@idle_b", "idle_e", 8.0, 1.0, -1, 17, 0, 0, 0, 0) do
@@ -147,7 +148,7 @@ end)
         `a_m_y_indian_01`,
     }
 
-exports['bt-target']:AddTargetModel(peds, {
+exports['np-target']:AddTargetModel(peds, {
         options = {
        	{
         event = "myshopscript:sendMenu",

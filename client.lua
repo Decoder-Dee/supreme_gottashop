@@ -57,6 +57,45 @@ RegisterNetEvent('supreme_gottashop:OpenMenu', function()
         },
         {
             id = 2,
+            header = "Groceries",
+            txt = "Buy your grocerie items here",
+            params = {
+                event = "supreme_gottashop:Groceries",
+                args = {
+                    number = 1,
+                    id = 2
+                }
+            }
+        },
+        {
+            id = 3,
+            header = "Wholesale",
+            txt = "Buy wholesale items here",
+            params = {
+                event = "supreme_gottashop:Wholesale",
+                args = {
+                    number = 1,
+                    id = 2
+                }
+            }
+        },
+    })
+end)
+
+RegisterNetEvent('supreme_gottashop:Groceries', function(data)
+    local id = data.id
+    local number = data.number
+    TriggerEvent('nh-context:sendMenu', {
+        {
+            id = 1,
+            header = "< Go Back",
+            txt = "",
+            params = {
+                event = "supreme_gottashop:OpenMenu"
+            }
+        },
+        {
+            id = 2,
             header = "Water",
             txt = "$35",
             params = {
@@ -77,6 +116,47 @@ RegisterNetEvent('supreme_gottashop:OpenMenu', function()
                 args = {
                     itemName = 'bread',
 					price = 35,
+                    
+                }
+            }
+        },
+    })
+end)
+
+RegisterNetEvent('supreme_gottashop:Wholesale', function(data)
+    local id = data.id
+    local number = data.number
+    TriggerEvent('nh-context:sendMenu', {
+        {
+            id = 1,
+            header = "< Go Back",
+            txt = "",
+            params = {
+                event = "supreme_gottashop:OpenMenu"
+            }
+        },
+        {
+            id = 2,
+            header = "Repairkit",
+            txt = "$1000",
+            params = {
+                event = "supreme_gottashop:BuyItem",
+                args = {
+                    itemName = 'fixkit',
+					price = 1000,
+                    
+                }
+            }
+        },
+        {
+            id = 3,
+            header = "Lockpick",
+            txt = "$250",
+            params = {
+                event = "supreme_gottashop:BuyItem",
+                args = {
+                    itemName = 'lockpick',
+					price = 250,
                     
                 }
             }

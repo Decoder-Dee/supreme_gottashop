@@ -2,8 +2,7 @@
 This resource for ESX adds shops at Youtool or megamall
 
 # UPDATES
-- Made it so the ped can't be killed.
-- Ped doesn't disappear now
+- Made it so you dont need a trigger for every item 
 
 # UP AND COMING UPDATES
 - Server callback to check if player has money (FIXED)

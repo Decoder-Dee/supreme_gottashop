@@ -84,20 +84,19 @@ RegisterNetEvent('supreme_gottashop:OpenMenu', function()
     })
 end)
 
-Citizen.CreateThread(function()
-    local itemsdealer = {
-		`a_m_y_indian_01`
+    local peds = {
+        `a_m_y_indian_01`,
     }
 
-    exports['bt-target']:AddTargetModel(itemsdealer, {
+exports['bt-target']:AddTargetModel(peds, {
         options = {
-            {
-                event = 'supreme_gottashop:OpenMenu',
-                icon = 'fas fa-water',
-                label = "Open Item Menu"
-            },
-        },
-        job = {'all'},
+       	{
+        event = "supreme_gottashop:OpenMenu",
+        icon = "fas fa-shopping-cart",
+        label = "Buy Items",
+        },        	
+    },
+        job = {"all"},
         distance = 1.5
     })
 end)
@@ -107,4 +106,4 @@ AddEventHandler('supreme_gottashop:BuyItem', function(data)
     local itemName = data.itemName
     local price = data.price
     TriggerServerEvent('supreme_buy:SetBuy', itemName, price)
-end)    
+end) 

@@ -4,6 +4,9 @@ This resource for ESX adds shops at Youtool or megamall
 # UPDATES
 - Made it so you dont need a trigger for every item 
 
+Video Preview
+- [Gottashop](https://streamable.com/n4ao8e)
+
 # UP AND COMING UPDATES
 - Server callback to check if player has money (FIXED)
 

@@ -48,89 +48,24 @@ end
 
 Citizen.CreateThread(function()
 
-RegisterNetEvent('myshopscript:sendMenu', function()
+RegisterNetEvent('supreme_gottashop:OpenMenu', function()
     TriggerEvent('nh-context:sendMenu', {
         {
             id = 1,
-            header = "Shop",
+            header = "Buy Items",
             txt = ""
-        },
-        {
-            id = 3,
-            header = "Groceries",
-            txt = "Open the shop menu",
-            params = {
-                event = "nh-context:testMenu3",
-                args = {
-                    number = 1,
-                    id = 2
-                }
-            }
-        },
-        {
-            id = 2,
-            header = "Wholesale Items",
-            txt = "Open the shop menu",
-            params = {
-                event = "nh-context:testMenu2",
-                args = {
-                    number = 1,
-                    id = 2
-                }
-            }
-        },
-    })
-end)
-
-RegisterNetEvent('nh-context:testMenu2', function(data)
-    local id = data.id
-    local number = data.number
-    TriggerEvent('nh-context:sendMenu', {
-        {
-            id = 1,
-            header = "< Go Back",
-            txt = "",
-            params = {
-                event = "myshopscript:sendMenu"
-            }
-        },
-        {
-            id = 2,
-            header = "Repairkit",
-            txt = "$1000",
-            params = {
-                event = "supreme_buy:grabRepairKit"
-            }
-        },
-        {
-            id = 3,
-            header = "Blowtorch",
-            txt = "$500",
-            params = {
-                event = "supreme_buy:grabBlowtorch"
-            }
-        },
-    })
-end)
-
-RegisterNetEvent('nh-context:testMenu3', function(data)
-    local id = data.id
-    local number = data.number
-    TriggerEvent('nh-context:sendMenu', {
-        {
-            id = 1,
-            header = "< Go Back",
-            txt = "",
-            params = {
-                event = "myshopscript:sendMenu"
-            }
         },
         {
             id = 2,
             header = "Water",
             txt = "$35",
             params = {
-                event = "supreme_buy:grabWater"
+                event = "supreme_gottashop:BuyItem",
+                args = {
+                    itemName = 'water',
+					price = 35,
+                    
+                }
             }
         },
         {
@@ -138,49 +73,38 @@ RegisterNetEvent('nh-context:testMenu3', function(data)
             header = "Bread",
             txt = "$35",
             params = {
-                event = "supreme_buy:grabBread"
+                event = "supreme_gottashop:BuyItem",
+                args = {
+                    itemName = 'bread',
+					price = 35,
+                    
+                }
             }
         },
     })
 end)
 
-    local peds = {
-        `a_m_y_indian_01`,
+Citizen.CreateThread(function()
+    local itemsdealer = {
+		`a_m_y_indian_01`
     }
 
-exports['bt-target']:AddTargetModel(peds, {
+    exports['bt-target']:AddTargetModel(itemsdealer, {
         options = {
-       	{
-        event = "myshopscript:sendMenu",
-        icon = "fas fa-shopping-cart",
-        label = "Buy Items",
-        },        	
-    },
-        job = {"all"},
+            {
+                event = 'supreme_gottashop:OpenMenu',
+                icon = 'fas fa-water',
+                label = "Open Item Menu"
+            },
+        },
+        job = {'all'},
         distance = 1.5
     })
 end)
 
--- RepairKit --
-RegisterNetEvent('supreme_buy:grabRepairKit')
-AddEventHandler('supreme_buy:grabRepairKit',function()
-    TriggerServerEvent('supreme_buy:RepairKitBuy')
-end)
-
--- Blowtorch --
-RegisterNetEvent('supreme_buy:grabBlowtorch')
-AddEventHandler('supreme_buy:grabBlowtorch',function()
-    TriggerServerEvent('supreme_buy:BlowtorchBuy')
-end)
-
--- Water --
-RegisterNetEvent('supreme_buy:grabWater')
-AddEventHandler('supreme_buy:grabWater',function()
-    TriggerServerEvent('supreme_buy:WaterBuy')
-end)
-
--- Bread --
-RegisterNetEvent('supreme_buy:grabBread')
-AddEventHandler('supreme_buy:grabBread',function()
-    TriggerServerEvent('supreme_buy:BreadBuy')
-end)
+RegisterNetEvent('supreme_gottashop:BuyItem')
+AddEventHandler('supreme_gottashop:BuyItem', function(data)
+    local itemName = data.itemName
+    local price = data.price
+    TriggerServerEvent('supreme_buy:SetBuy', itemName, price)
+end)    
